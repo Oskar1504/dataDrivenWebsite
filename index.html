@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="menschenInfos"></div>
+    <script>
+        let menschen = [{
+            name: "Mensch1",
+            alter: 12
+        },
+        {
+            name: "Mensch2",
+            alter: 21
+        },
+        {
+            name: "Mensch3",
+            alter: 1222
+        }
+        ]
+        for (let mensch of menschen) {
+            let buttonElement = document.createElement("button")
+            buttonElement.innerText = mensch.name
+            buttonElement.addEventListener("click", function (e) {
+                console.log(e)
+                render(mensch)
+            })
+            document.body.appendChild(buttonElement)
+        }
+
+        function render(mensch) {
+
+            let menschenInfos = document.getElementById("menschenInfos")
+            menschenInfos.innerHTML = "" // lösche alle elmente in den element
+
+            //erstelle div elemente
+            let namenElement = document.createElement("div")
+            namenElement.innerText = mensch.name
+            let alterElement = document.createElement("div")
+            alterElement.innerText = mensch.alter
+
+            //füge erstelle div elemenbte dem menschenInfo element hinzu
+            menschenInfos.appendChild(namenElement)
+            menschenInfos.appendChild(alterElement)
+        }
+    </script>
+</body>
+
+</html>
